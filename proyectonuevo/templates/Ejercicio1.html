@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Ejercicio 1</title> <!--titulo de la pagina en el explorador-->
+</head>
+<body>
+    <h1>Formulario de Compra de Pintura</h1>
+    <form action="/calcular_compra" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" required>
+
+        <label for="tarros">Tarros de Pintura a Comprar:</label>
+        <input type="number" name="tarros" min="0" required>
+
+        <button type="submit">Calcular</button>
+    </form>
+    {% if resultado %}
+        <p>{{ resultado }}</p>
+    {% endif %}
+</body>
+</html>
